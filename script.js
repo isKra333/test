@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Navigation logic ---
-  function changeStep(stepNumber) {
+  function changeStep(stepNumber, shouldScroll = true) {
     currentStep = parseInt(stepNumber);
     
     // Update step cards
@@ -159,8 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const cardStep = parseInt(card.getAttribute('data-step'));
       if (cardStep === currentStep) {
         card.classList.add('active');
-        // Scroll to the active card smoothly
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        if (shouldScroll) {
+          // Smooth scroll to the top of card (respecting scroll-margin-top offset)
+          // Delayed to 200ms to let the previous card collapse first, preventing y-axis overflow
+          setTimeout(() => {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 250);
+        }
       } else {
         card.classList.remove('active');
       }
@@ -202,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const guideSection = document.getElementById('apk-guide-section');
       if (guideSection) {
         guideSection.scrollIntoView({ behavior: 'smooth' });
-        // Auto-select and show Step 1
-        changeStep(1);
+        // Auto-select and show Step 1, but do not trigger card scroll to avoid conflict
+        changeStep(1, false);
       }
     });
   }
