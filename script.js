@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       "step2-tag": "Step 2",
       "step2-title": "출처를 알 수 없는 앱 허용",
-      "step2-body": "다운로드 완료 후 파일을 열면 보안 경고가 나타납니다. 해당 파일을 실행한 앱에 알 수 없는 앱 설치 권한이 허용되지 않았기 때문입니다.",
+      "step2-body": "다운로드한 파일을 열 때 보안 경고가 나타나는 것은 해당 앱에 설치 권한이 허용되지 않았기 때문입니다.",
       "step2-alert-title": "실행한 앱에 따라 다릅니다:",
-      "step2-alert-body": "다운로드 직후 브라우저에서 바로 열 때는 <strong>\"Chrome\"</strong> 권한을, 기기 내 파일 관리자 앱에서 따로 실행할 때는 <strong>\"내 파일\"</strong> 권한을 활성화해야 합니다.",
+      "step2-alert-body": "브라우저에서 바로 열 때는 <strong>\"Chrome\"</strong>, 파일 관리자에서 열 때는 <strong>\"내 파일\"</strong> 권한을 활성화해야 합니다.",
       "step2-list1": "경고 팝업에서 <strong class=\"color-highlight\">설정</strong>(Settings)을 누릅니다.",
       "step2-list2": "설정 창에서 <strong class=\"color-highlight\">이 소스 허용</strong>(Allow from this source) 토글 스위치를 활성화합니다.",
       "btn-prev": "이전",
@@ -41,14 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
       "policy-title": "개인정보처리방침 (Privacy Policy)"
     },
     en: {
-      "header-badge": "Android Guide Only",
+      "header-badge": "Android Guide",
       "intro-title": "APK Manual Installation Guide",
       "intro-subtitle": "A simple 3-step guide to safely and quickly install game files (APKs) downloaded outside the Google Play Store.",
       
       "hero-subtitle": "Enjoy the best card and board games on web and mobile anytime, anywhere.",
       "hero-webgame-btn": "Launch Web Game",
       "hero-apk-btn": "Download APK",
-      "hero-cs-btn": "CS Inquiry",
+      "hero-cs-btn": "Customer Support",
 
       "step1-tag": "Step 1",
       "step1-title": "Download APK File",
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "step2-title": "Allow Unknown Sources",
       "step2-body": "A security warning appears when you open the downloaded file. This happens because the app that runs the file does not have permission to install unknown apps.",
       "step2-alert-title": "Depends on the App Used:",
-      "step2-alert-body": "If opened directly in the browser, allow <strong>\"Chrome\"</strong>. If run from the device downloads folder later, allow <strong>\"My Files\"</strong> (File Manager).",
+      "step2-alert-body": "If opened directly in the browser, allow <strong>\"Chrome\".</strong> If run from the device downloads folder later, allow <strong>\"My Files\"</strong> (File Manager).",
       "step2-list1": "Tap <strong class=\"color-highlight\">Settings</strong> in the warning popup.",
       "step2-list2": "In the settings page, enable the <strong class=\"color-highlight\">Allow from this source</strong> toggle switch.",
       "btn-prev": "Back",
@@ -93,14 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
       "step1-title": "Tải xuống tệp APK",
       "step1-body": "Nhấn vào nút tải xuống để bắt đầu tải tệp. Cảnh báo xuất hiện là <strong>cảnh báo hệ thống mặc định của Android</strong> khi cài đặt từ các nguồn ngoài cửa hàng chính thức.",
       "step1-alert-title": "Tải xuống an toàn:",
-      "step1-alert-body": "Tệp APK đã được xác minh an toàn, vì vậy bạn có thể yên tâm nhấp vào <strong>\"Vẫn tải xuống\"</strong>.",
+      "step1-alert-body": "Tệp APK đã được xác minh an toàn, vì vậy bạn có thể yên tâm nhấp vào <strong>\"Vẫn tải xuống\".</strong>",
       "btn-next-step1": "Bước tiếp theo <i class=\"fa-solid fa-arrow-right\"></i>",
       
       "step2-tag": "Bước 2",
       "step2-title": "Cho phép ứng dụng không xác định",
-      "step2-body": "Cảnh báo bảo mật xuất hiện khi bạn mở tệp đã tải xuống. Điều này xảy ra do ứng dụng chạy tệp chưa được cấp quyền cài đặt ứng dụng không rõ nguồn gốc.",
+      "step2-body": "Cảnh báo bảo mật xuất hiện khi mở tệp là do ứng dụng chạy tệp chưa được cấp quyền cài đặt.",
       "step2-alert-title": "Tùy thuộc vào ứng dụng đã sử dụng:",
-      "step2-alert-body": "Nếu mở trực tiếp trên trình duyệt, hãy cấp quyền cho <strong>\"Chrome\"</strong>. Nếu chạy từ thư mục tải xuống sau đó, hãy cấp quyền cho <strong>\"Tệp của bạn\"</strong> (Trình quản lý tệp).",
+      "step2-alert-body": "Nếu mở từ trình duyệt, hãy cấp quyền cho <strong>\"Chrome\".</strong> Nếu mở từ quản lý tệp, hãy cấp quyền cho <strong>\"Tệp của bạn\".</strong>",
       "step2-list1": "Nhấn vào <strong class=\"color-highlight\">Cài đặt</strong> (Settings) trong hộp thoại cảnh báo.",
       "step2-list2": "Trong trang cài đặt, hãy bật công tắc <strong class=\"color-highlight\">Cho phép từ nguồn này</strong> (Allow from this source).",
       "btn-prev": "Quay lại",
@@ -213,11 +213,23 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('active');
         
         if (shouldScroll) {
-          // Smooth scroll to the top of card (respecting scroll-margin-top offset)
-          // Delayed to 200ms to let the previous card collapse first, preventing y-axis overflow
+          // Smart scroll algorithm: check card height against viewport height
+          // Delayed to 320ms to allow the 300ms transition to complete first
           setTimeout(() => {
-            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 250);
+            const rect = card.getBoundingClientRect();
+            const headerHeight = 73; // Sticky header height
+            const paddingBuffer = 24; // Extra spacing buffer
+            const viewportHeight = window.innerHeight;
+            
+            // If the card fits fully inside the available viewport space
+            if (rect.height + headerHeight + paddingBuffer < viewportHeight) {
+              // Center it so both header and next-step buttons are fully visible
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              // If it's too tall, align to start so the user starts reading from the top
+              card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 320);
         }
       } else {
         card.classList.remove('active');
