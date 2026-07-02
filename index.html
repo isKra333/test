@@ -34,10 +34,9 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <div class="logo">
-        <i class="fa-solid fa-gamepad logo-icon"></i>
-        <span class="logo-text">PLAY<span>COC</span></span>
-      </div>
+      <a href="index.html" class="logo">
+        <img src="img/header-logo.webp" alt="PLAYCOC" class="logo-img">
+      </a>
       <div class="header-right">
         <!-- Custom Language Selector with Flags -->
         <div class="custom-lang-selector" id="lang-selector-wrap">
@@ -69,38 +68,19 @@
   <section class="hero-section">
     <div class="hero-container">
       
-      <!-- PLAYCOC Premium Vector Brand Mark -->
+      <!-- PLAYCOC Premium Hero Logo -->
       <div class="brand-logo-container">
-        <svg class="brand-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00d2ff" />
-              <stop offset="50%" stop-color="#0078ff" />
-              <stop offset="100%" stop-color="#7000ff" />
-            </linearGradient>
-            <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-          </defs>
-          <!-- Rotating / Pulsing outer cybernetic rings -->
-          <polygon class="hex-ring" points="50,5 90,28 90,72 50,95 10,72 10,28" fill="none" stroke="url(#logoGrad)" stroke-width="2" filter="url(#logoGlow)" />
-          <polygon class="hex-ring-inner" points="50,13 82,31 82,69 50,87 18,69 18,31" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" stroke-dasharray="3, 3" />
-          <!-- Spade + Controller Hybrid Central Badge -->
-          <path class="logo-core" d="M35,47 C35,43 42,34 50,34 C58,34 65,43 65,47 C65,58 50,68 50,68 C50,68 35,58 35,47 Z" fill="url(#logoGrad)" filter="url(#logoGlow)" opacity="0.9" />
-          <!-- Controller Buttons -->
-          <circle cx="42" cy="47" r="1.8" fill="#fff" />
-          <circle cx="58" cy="47" r="1.8" fill="#fff" />
-          <path d="M47,54 L53,54 M50,51 L50,57" stroke="#fff" stroke-width="1.2" stroke-linecap="round" />
-        </svg>
-        <h1 class="brand-text">PLAY<span>COC</span></h1>
+        <div class="logo-sheen-container">
+          <img src="img/hero-logo.webp" alt="PLAYCOC" class="hero-logo-img">
+          <div class="sheen-layer"></div>
+        </div>
       </div>
 
       <p class="hero-subtitle" data-i18n="hero-subtitle">언제 어디서나 웹과 모바일로 최고의 카드 & 보드 게임을 즐겨보세요.</p>
       
       <div class="hero-btn-grid">
         <!-- Button 1: Webgame -->
-        <a href="#" class="hero-card-btn webgame-btn">
+        <a href="https://www.onplaycoc.com/webgame" class="hero-card-btn webgame-btn">
           <div class="hero-card-icon-wrap">
             <i class="fa-solid fa-circle-play hero-card-icon"></i>
           </div>
@@ -111,7 +91,7 @@
         </a>
 
         <!-- Button 2: APK Download -->
-        <a href="#apk-guide-section" class="hero-card-btn apk-btn" id="btn-scroll-to-guide">
+        <a href="https://www.onplaycoc.com/filedown/playcoc220511.apk" class="hero-card-btn apk-btn" id="btn-scroll-to-guide">
           <div class="hero-card-icon-wrap">
             <i class="fa-solid fa-circle-down hero-card-icon"></i>
           </div>
@@ -122,7 +102,7 @@
         </a>
 
         <!-- Button 3: CS Inquiry -->
-        <a href="#" class="hero-card-btn cs-btn">
+        <a href="https://m.me/259294148058141" target="_blank" rel="noopener noreferrer" class="hero-card-btn cs-btn">
           <div class="hero-card-icon-wrap">
             <i class="fa-solid fa-headset hero-card-icon"></i>
           </div>
@@ -248,7 +228,18 @@
   <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <p data-i18n="footer-text">&copy; 2026 PLAYCOC. All Rights Reserved. 본 페이지는 크롬 및 안드로이드 공식 설치 규격을 기반으로 작성되었습니다.</p>
+      <div class="footer-left-content">
+        <p class="footer-slogan-text" data-i18n="footer-slogan">언제나 당신을 위해 최고의 제품을 만드는 곳</p>
+        <p class="footer-copyright-text">&copy; <span id="footer-year"></span> PLAYCOC. All Rights Reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="policy.html" class="footer-policy-link-wrap">
+          <span class="policy-icon-box">
+            <i class="fa-solid fa-lock"></i>
+          </span>
+          <span data-i18n="footer-policy-link">개인정보처리방침</span>
+        </a>
+      </div>
     </div>
   </footer>
 

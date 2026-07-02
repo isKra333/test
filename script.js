@@ -36,7 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "step3-alert": "설치가 모두 끝났습니다! 이제 언제든 자유롭게 게임을 실행해 플레이하실 수 있습니다.",
       "btn-prev-step": "이전 단계",
       "btn-restart": "<i class=\"fa-solid fa-rotate-left\"></i> 처음부터 다시 보기",
-      "footer-text": "&copy; 2026 PLAYCOC. All Rights Reserved. 본 페이지는 크롬 및 안드로이드 공식 설치 규격을 기반으로 작성되었습니다."
+      "footer-slogan": "언제나 당신을 위해 최고의 제품을 만드는 곳",
+      "footer-policy-link": "개인정보처리방침",
+      "policy-title": "개인정보처리방침 (Privacy Policy)"
     },
     en: {
       "header-badge": "Android Guide Only",
@@ -73,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "step3-alert": "Installation complete! You are now ready to play and enjoy the game.",
       "btn-prev-step": "Previous",
       "btn-restart": "<i class=\"fa-solid fa-rotate-left\"></i> Restart Guide",
-      "footer-text": "&copy; 2026 PLAYCOC. All Rights Reserved. This page is written based on Chrome and Android official installation standards."
+      "footer-slogan": "The place that always creates the best products for you",
+      "footer-policy-link": "Privacy Policy",
+      "policy-title": "Privacy Policy"
     },
     vi: {
       "header-badge": "Hướng dẫn Android",
@@ -110,7 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "step3-alert": "Cài đặt hoàn tất! Bạn đã sẵn sàng để trải nghiệm trò chơi.",
       "btn-prev-step": "Bước trước",
       "btn-restart": "<i class=\"fa-solid fa-rotate-left\"></i> Xem lại từ đầu",
-      "footer-text": "&copy; 2026 PLAYCOC. All Rights Reserved. Trang này được thiết kế dựa trên tiêu chuẩn cài đặt của Chrome và Android."
+      "footer-slogan": "Nơi luôn tạo ra những sản phẩm đỉnh nhất dành cho bạn",
+      "footer-policy-link": "Chính sách bảo mật",
+      "policy-title": "Chính sách bảo mật (Privacy Policy)"
     }
   };
 
@@ -250,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Scroll & Reset Step ---
   if (btnScrollToGuide) {
     btnScrollToGuide.addEventListener('click', (e) => {
-      e.preventDefault();
+      // Do NOT preventDefault to let the APK file download start naturally
       const guideSection = document.getElementById('apk-guide-section');
       if (guideSection) {
         guideSection.scrollIntoView({ behavior: 'smooth' });
@@ -265,4 +271,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Change back to step 1
     changeStep(1);
   });
+
+  // Set current copyright year dynamically
+  const footerYear = document.getElementById('footer-year');
+  if (footerYear) {
+    footerYear.textContent = new Date().getFullYear();
+  }
 });
