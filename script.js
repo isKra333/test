@@ -116,7 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Elements
   const stepCards = document.querySelectorAll('.step-card');
-  const langSelect = document.getElementById('lang-select');
+  const langTrigger = document.getElementById('lang-trigger');
+  const langDropdown = document.getElementById('lang-dropdown');
+  const langSelectorWrap = document.getElementById('lang-selector-wrap');
+  const langOptions = document.querySelectorAll('.lang-option');
+  const currentFlag = document.getElementById('current-flag');
+  const currentLangText = document.getElementById('current-lang-text');
   
   // Global controls
   const nextBtns = document.querySelectorAll('.next-step-btn');
@@ -125,6 +130,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnScrollToGuide = document.getElementById('btn-scroll-to-guide');
 
   let currentStep = 1;
+
+  // Flag and name maps for UI update
+  const flagUrls = {
+    ko: "https://flagcdn.com/w20/kr.png",
+    en: "https://flagcdn.com/w20/us.png",
+    vi: "https://flagcdn.com/w20/vn.png"
+  };
+
+  const langNames = {
+    ko: "한국어",
+    en: "English",
+    vi: "Tiếng Việt"
+  };
+
+  // Toggle Dropdown
+  langTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langSelectorWrap.classList.toggle('open');
+  });
+
+  // Close dropdown on clicking outside
+  document.addEventListener('click', () => {
+    langSelectorWrap.classList.remove('open');
+  });
+
+  // Option selection
+  langOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const langValue = option.getAttribute('data-value');
+      setLanguage(langValue);
+      langSelectorWrap.classList.remove('open');
+    });
+  });
 
   // --- Multi-language Translation Logic ---
   function setLanguage(lang) {
@@ -135,20 +173,28 @@ document.addEventListener('DOMContentLoaded', () => {
         el.innerHTML = selectedTranslations[key];
       }
     });
+
+    // Update UI elements for custom dropdown
+    currentFlag.src = flagUrls[lang];
+    currentFlag.alt = lang.toUpperCase();
+    currentLangText.textContent = langNames[lang];
+
+    // Highlight active option
+    langOptions.forEach(opt => {
+      if (opt.getAttribute('data-value') === lang) {
+        opt.classList.add('active');
+      } else {
+        opt.classList.remove('active');
+      }
+    });
     
     // Save selection
     localStorage.setItem('playcoc-guide-lang', lang);
-    langSelect.value = lang;
   }
 
   // Load language from storage or default to 'ko'
   const savedLang = localStorage.getItem('playcoc-guide-lang') || 'ko';
   setLanguage(savedLang);
-
-  // Bind change event
-  langSelect.addEventListener('change', (e) => {
-    setLanguage(e.target.value);
-  });
 
   // --- Navigation logic ---
   function changeStep(stepNumber, shouldScroll = true) {

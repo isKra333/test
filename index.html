@@ -24,10 +24,12 @@
 </head>
 <body>
 
-  <!-- Background Decorative Orbs -->
-  <div class="decor-orb orb-1"></div>
-  <div class="decor-orb orb-2"></div>
-  <div class="decor-orb orb-3"></div>
+  <!-- Background Decorative Orbs Container -->
+  <div class="bg-decor-wrapper">
+    <div class="decor-orb orb-1"></div>
+    <div class="decor-orb orb-2"></div>
+    <div class="decor-orb orb-3"></div>
+  </div>
 
   <!-- Header -->
   <header>
@@ -37,16 +39,28 @@
         <span class="logo-text">PLAY<span>COC</span></span>
       </div>
       <div class="header-right">
-        <!-- Language Selector -->
-        <div class="lang-selector">
-          <i class="fa-solid fa-globe lang-icon"></i>
-          <select id="lang-select">
-            <option value="ko" selected>한국어</option>
-            <option value="en">English</option>
-            <option value="vi">Tiếng Việt</option>
-          </select>
+        <!-- Custom Language Selector with Flags -->
+        <div class="custom-lang-selector" id="lang-selector-wrap">
+          <button class="lang-trigger-btn" id="lang-trigger">
+            <img src="https://flagcdn.com/w20/kr.png" alt="KO" class="flag-img" id="current-flag">
+            <span id="current-lang-text">한국어</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+          </button>
+          <div class="lang-dropdown-menu" id="lang-dropdown">
+            <div class="lang-option" data-value="ko">
+              <img src="https://flagcdn.com/w20/kr.png" alt="KO" class="flag-img">
+              <span>한국어</span>
+            </div>
+            <div class="lang-option" data-value="en">
+              <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-img">
+              <span>English</span>
+            </div>
+            <div class="lang-option" data-value="vi">
+              <img src="https://flagcdn.com/w20/vn.png" alt="VI" class="flag-img">
+              <span>Tiếng Việt</span>
+            </div>
+          </div>
         </div>
-        <div class="badge" data-i18n="header-badge">안드로이드 전용 가이드</div>
       </div>
     </div>
   </header>
@@ -188,7 +202,7 @@
 
             <ol class="bullet-list">
               <li data-i18n="step2-list1">경고 팝업에서 <strong class="color-highlight">설정</strong>(Settings)을 누릅니다.</li>
-              <li data-i18n="step2-list2">보안 설정 창에서 <strong class="color-highlight">이 소스 허용</strong>(Allow from this source) 토글 스위치를 활성화합니다.</li>
+              <li data-i18n="step2-list2">설정 창에서 <strong class="color-highlight">이 소스 허용</strong>(Allow from this source) 토글 스위치를 활성화합니다.</li>
             </ol>
             <div class="step-actions">
               <button class="btn btn-secondary prev-step-btn" data-prev="1" data-i18n="btn-prev">이전</button>
