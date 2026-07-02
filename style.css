@@ -149,10 +149,10 @@ header {
 .lang-trigger-btn {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 12px;
   color: var(--text-main);
   font-size: 0.88rem;
@@ -160,6 +160,7 @@ header {
   cursor: pointer;
   transition: var(--transition-fast);
   outline: none;
+  min-width: 155px; /* Stable, spacious width to prevent text wrapping and look premium */
 }
 
 .lang-trigger-btn:hover {
@@ -179,6 +180,7 @@ header {
   font-size: 0.75rem;
   color: var(--text-muted);
   transition: var(--transition-fast);
+  margin-left: auto; /* Push the chevron to the far right */
 }
 
 .custom-lang-selector.open .arrow-icon {
@@ -194,7 +196,7 @@ header {
   border: 1px solid var(--border-color);
   border-radius: 14px;
   padding: 0.5rem;
-  width: 140px;
+  width: 155px; /* Matches the trigger button's min-width */
   display: none;
   flex-direction: column;
   gap: 0.3rem;
@@ -375,7 +377,7 @@ header {
   color: var(--text-muted);
   font-size: 1.2rem;
   margin-bottom: 3.5rem;
-  max-width: 600px;
+  max-width: 900px; /* Increased from 600px to display the subtitle as a single clean line on desktop */
   margin-left: auto;
   margin-right: auto;
 }
