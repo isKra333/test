@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,22 +34,25 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <a href="index.html" class="logo">
+      <div data-href="index.html" class="logo" style="cursor: pointer;">
         <img src="img/header-logo.webp" alt="PLAYCOC" class="logo-img">
-      </a>
+      </div>
       <div class="header-right">
         <!-- Custom Language Selector with Flags -->
         <div class="custom-lang-selector" id="lang-selector-wrap">
           <button class="lang-trigger-btn" id="lang-trigger">
-            <img src="https://flagcdn.com/w20/kr.png" alt="KO" class="flag-img" id="current-flag">
-            <span id="current-lang-text">한국어</span>
+            <img src="https://flagcdn.com/w20/vn.png" alt="VI" class="flag-img" id="current-flag">
+            <span id="current-lang-text">Tiếng Việt</span>
             <i class="fa-solid fa-chevron-down arrow-icon"></i>
           </button>
           <div class="lang-dropdown-menu" id="lang-dropdown">
+            <!-- Korean hidden but kept for future debugging -->
+            <!--
             <div class="lang-option" data-value="ko">
               <img src="https://flagcdn.com/w20/kr.png" alt="KO" class="flag-img">
               <span>한국어</span>
             </div>
+            -->
             <div class="lang-option" data-value="en">
               <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-img">
               <span>English</span>
@@ -177,12 +180,12 @@
         <p class="footer-copyright-text">&copy; <span id="footer-year"></span> PLAYCOC. All Rights Reserved.</p>
       </div>
       <div class="footer-links">
-        <a href="policy.html" class="footer-policy-link-wrap">
+        <div data-href="policy.html" class="footer-policy-link-wrap" style="cursor: pointer;">
           <span class="policy-icon-box">
             <i class="fa-solid fa-lock"></i>
           </span>
           <span data-i18n="footer-policy-link">개인정보처리방침</span>
-        </a>
+        </div>
       </div>
     </div>
   </footer>

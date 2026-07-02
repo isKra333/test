@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Multi-language Translation Logic ---
   function setLanguage(lang) {
-    const selectedTranslations = translations[lang] || translations['ko'];
+    const selectedTranslations = translations[lang] || translations['vi'];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (selectedTranslations[key]) {
@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('playcoc-guide-lang', lang);
   }
 
-  // Load language from storage or default to 'ko'
-  const savedLang = localStorage.getItem('playcoc-guide-lang') || 'ko';
+  // Load language from storage or default to 'vi'
+  const savedLang = localStorage.getItem('playcoc-guide-lang') || 'vi';
   setLanguage(savedLang);
 
   // Set current copyright and policy years dynamically
@@ -110,4 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (policyYear) {
     policyYear.textContent = currentYearVal;
   }
+
+  // Dynamic navigation handler (to prevent link previews in browser status bar on hover)
+  document.querySelectorAll('[data-href]').forEach(el => {
+    el.addEventListener('click', () => {
+      const href = el.getAttribute('data-href');
+      const target = el.getAttribute('data-target');
+      if (href) {
+        if (target === '_blank') {
+          window.open(href, '_blank', 'noopener,noreferrer');
+        } else {
+          window.location.href = href;
+        }
+      }
+    });
+  });
 });

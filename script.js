@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Multi-language Translation Logic ---
   function setLanguage(lang) {
-    const selectedTranslations = translations[lang] || translations['ko'];
+    const selectedTranslations = translations[lang] || translations['vi'];
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (selectedTranslations[key]) {
@@ -198,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('playcoc-guide-lang', lang);
   }
 
-  // Load language from storage or default to 'ko'
-  const savedLang = localStorage.getItem('playcoc-guide-lang') || 'ko';
+  // Load language from storage or default to 'vi'
+  const savedLang = localStorage.getItem('playcoc-guide-lang') || 'vi';
   setLanguage(savedLang);
 
   // --- Navigation logic ---
@@ -267,8 +267,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Scroll & Reset Step ---
   if (btnScrollToGuide) {
-    btnScrollToGuide.addEventListener('click', (e) => {
-      // Do NOT preventDefault to let the APK file download start naturally
+    btnScrollToGuide.addEventListener('click', () => {
+      // Trigger the file download programmatically since we removed the <a> tag's href
+      const href = btnScrollToGuide.getAttribute('data-href');
+      if (href) {
+        window.location.href = href;
+      }
+      
       const guideSection = document.getElementById('apk-guide-section');
       if (guideSection) {
         guideSection.scrollIntoView({ behavior: 'smooth' });
@@ -289,4 +294,19 @@ document.addEventListener('DOMContentLoaded', () => {
   if (footerYear) {
     footerYear.textContent = new Date().getFullYear();
   }
+
+  // Dynamic navigation handler (to prevent link previews in browser status bar on hover)
+  document.querySelectorAll('[data-href]:not(#btn-scroll-to-guide)').forEach(el => {
+    el.addEventListener('click', () => {
+      const href = el.getAttribute('data-href');
+      const target = el.getAttribute('data-target');
+      if (href) {
+        if (target === '_blank') {
+          window.open(href, '_blank', 'noopener,noreferrer');
+        } else {
+          window.location.href = href;
+        }
+      }
+    });
+  });
 });
