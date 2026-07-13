@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký | Playcoc</title>
+  <meta name="description" content="Trang đăng ký tài khoản PlayCoc mới an toàn và nhanh chóng.">
+  
+  <!-- SEO Open Graph -->
+  <meta property="og:title" content="Đăng ký | Playcoc">
+  <meta property="og:description" content="Đăng ký tài khoản PlayCoc.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Orbs Container -->
+  <div class="bg-decor-wrapper">
+    <div class="decor-orb orb-1"></div>
+    <div class="decor-orb orb-2"></div>
+    <div class="decor-orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div data-href="../../index.html" class="logo" style="cursor: pointer;">
+        <img src="../../img/header-logo.webp" alt="PLAYCOC" class="logo-img">
+      </div>
+      <div class="header-right">
+        <!-- Custom Language Selector with Flags -->
+        <div class="custom-lang-selector" id="lang-selector-wrap">
+          <button class="lang-trigger-btn" id="lang-trigger">
+            <img src="https://flagcdn.com/w20/vn.png" alt="VI" class="flag-img" id="current-flag">
+            <span id="current-lang-text">Tiếng Việt</span>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+          </button>
+          <div class="lang-dropdown-menu" id="lang-dropdown">
+            <!-- Korean hidden but kept for future debugging -->
+            <!--
+            <div class="lang-option" data-value="ko">
+              <img src="https://flagcdn.com/w20/kr.png" alt="KO" class="flag-img">
+              <span>한국어</span>
+            </div>
+            -->
+            <div class="lang-option" data-value="en">
+              <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-img">
+              <span>English</span>
+            </div>
+            <div class="lang-option" data-value="vi">
+              <img src="https://flagcdn.com/w20/vn.png" alt="VI" class="flag-img">
+              <span>Tiếng Việt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="register-wrapper">
+    <div class="register-card">
+
+      <!-- Mobile Only Lock Overlay (Visible on PC) -->
+      <div class="mobile-lock-overlay" id="mobile-lock-panel">
+        <div class="phone-icon-animate">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <h3 data-i18n="mobile-only-title">Thiết bị di động được khuyên dùng</h3>
+        <p data-i18n="mobile-only-desc">Trang web này được tối ưu hóa tốt nhất cho điện thoại di động. Vui lòng truy cập bằng điện thoại di động.</p>
+      </div>
+
+      <!-- Card Title (Portrait Mode Only) -->
+      <h2 class="register-title-box portrait-only-title" data-i18n="register-title">Đăng ký</h2>
+
+      <div class="register-card-content">
+        <!-- Signup Form -->
+        <form class="register-form" id="register-form" onsubmit="event.preventDefault(); alert('Đăng ký thành công!');">
+          <!-- Username Field -->
+          <div class="register-input-wrap">
+            <input type="text" id="reg-username" data-i18n-placeholder="reg-username-placeholder" placeholder="Tài khoản" required>
+            <p class="register-input-desc" data-i18n="reg-username-desc">Tên tài khoản có thể sử dụng chữ cái và chữ số, dài từ 6~12 ký tự và không được dùng khoảng trắng.</p>
+          </div>
+
+          <!-- Password Field -->
+          <div class="register-input-wrap">
+            <input type="password" id="reg-password" data-i18n-placeholder="reg-password-placeholder" placeholder="Mật khẩu" required>
+          </div>
+
+          <!-- Confirm Password Field -->
+          <div class="register-input-wrap">
+            <input type="password" id="reg-confirm-password" data-i18n-placeholder="reg-confirm-placeholder" placeholder="Xác nhận mật khẩu" required>
+            <p class="register-input-desc" data-i18n="reg-password-desc">Mật khẩu phải chứa 2 ký tự khác nhau trở lên, từ 6~12 ký tự. Ví dụ: chữ + số 또는 ký tự đặc biệt.</p>
+          </div>
+
+          <!-- Email Field -->
+          <div class="register-input-wrap">
+            <input type="email" id="reg-email" data-i18n-placeholder="reg-email-placeholder" placeholder="Địa chỉ e-mail" required>
+            <p class="register-input-desc" data-i18n="reg-email-desc">Vui lòng nhập đúng địa chỉ mail, mail này được dùng khi bạn quên mật khẩu.</p>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="register-submit-btn" data-i18n="reg-submit-btn">Xác nhận</button>
+        </form>
+
+        <!-- Right Side Guide Panel (Visible only in desktop and landscape mode) -->
+        <div class="register-guide-panel" id="register-guide">
+          <!-- Card Title (Landscape Mode Only) -->
+          <h2 class="register-title-box landscape-only-title" data-i18n="register-title" style="text-align: left; margin-bottom: 1.5rem; font-size: 1.5rem; border-bottom: 2px solid var(--color-primary); padding-bottom: 0.5rem; width: 100%;">Đăng ký</h2>
+          <div class="guide-title-box">
+            <i class="fa-solid fa-circle-info"></i>
+            <span data-i18n="guide-title">Hướng dẫn</span>
+          </div>
+          <div class="guide-content-box">
+            <p id="guide-text" data-i18n="guide-default">Vui lòng chọn một ô nhập liệu để xem hướng dẫn chi tiết.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left-content">
+        <p class="footer-slogan-text" data-i18n="footer-slogan">Nơi luôn tạo ra những sản phẩm đỉnh nhất dành cho bạn</p>
+        <p class="footer-copyright-text">&copy; <span id="footer-year"></span> PLAYCOC. All Rights Reserved.</p>
+      </div>
+      <div class="footer-links">
+        <div data-href="../policy/index.html" class="footer-policy-link-wrap" style="cursor: pointer;">
+          <span class="policy-icon-box">
+            <i class="fa-solid fa-lock"></i>
+          </span>
+          <span data-i18n="footer-policy-link">Chính sách bảo mật</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="register.js"></script>
+</body>
+</html>

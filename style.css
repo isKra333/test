@@ -1123,3 +1123,503 @@ footer {
     font-size: 0.9rem;
   }
 }
+
+/* --- Footer Links Layout --- */
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* --- Q&A Specific Styles --- */
+.qna-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.qna-tab-btn {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.qna-tab-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.qna-tab-btn.active {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+.qna-group {
+  display: none;
+}
+
+.qna-group.active {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.qna-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.qna-card:hover {
+  border-color: rgba(0, 210, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+}
+
+.qna-question-btn {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  color: var(--text-main);
+  font-family: inherit;
+}
+
+.qna-question-btn:focus,
+.qna-question-btn:active {
+  outline: none;
+  background: transparent;
+}
+
+.qna-q-tag {
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  margin-right: 0.5rem;
+}
+
+.qna-question-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.qna-card-arrow {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: transform var(--transition-fast);
+}
+
+.qna-card.open .qna-card-arrow {
+  transform: rotate(90deg);
+  color: var(--color-primary);
+}
+
+.qna-answer-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-fast) ease-out;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.qna-answer-content {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.qna-a-tag {
+  color: var(--color-secondary);
+  font-weight: 800;
+  font-size: 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  margin-right: 0.5rem;
+}
+
+/* --- Register Page Specific Styles --- */
+.register-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height) - 150px);
+  padding: 2rem 1.5rem;
+}
+
+.register-card {
+  background: #2a336a; /* Opaque dark blue/indigo matching the reference image */
+  border: 3px solid #5d6dbf; /* Thick light blue/indigo boundary line */
+  border-radius: 28px;
+  width: 100%;
+  max-width: 460px; /* Default portrait width */
+  box-shadow: 0 10px 45px rgba(0, 0, 0, 0.6);
+  padding: 2.2rem 2.5rem;
+  position: relative;
+  transition: max-width 0.3s ease, padding 0.3s ease;
+}
+
+.register-card-content {
+  display: block;
+}
+
+.register-title-box {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.portrait-only-title {
+  display: block;
+}
+
+.landscape-only-title {
+  display: none;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.register-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.register-input-wrap input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #d8d8d8;
+  color: #000000;
+  border: 1px solid #111111;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: 500;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.register-input-wrap input::placeholder {
+  color: #555555;
+}
+
+.register-input-desc {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #b4c6fc;
+  font-weight: 400;
+  margin-top: 0.2rem;
+  display: block; /* Shown by default in portrait */
+}
+
+.register-submit-btn {
+  background-color: #3e3e3e;
+  color: #ffffff;
+  border: 1px solid #111111;
+  border-radius: 8px;
+  padding: 0.65rem 2.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  margin: 1rem auto 0 auto;
+  transition: background-color 0.2s;
+  width: auto;
+}
+
+.register-submit-btn:hover {
+  background-color: #4f4f4f;
+}
+
+/* Guide Panel - Hidden by default in portrait */
+.register-guide-panel {
+  display: none;
+}
+
+/* Split-screen Responsive Layout for Desktop & Wide Viewports (or Landscape Mode) */
+@media (min-width: 768px) {
+  .portrait-only-title {
+    display: none !important;
+  }
+  .landscape-only-title {
+    display: block !important;
+  }
+  .register-card {
+    max-width: 780px; /* Expand card width to split columns */
+    padding: 2.5rem 3rem;
+  }
+  .register-card-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+  .register-input-desc {
+    display: none; /* Hide descriptions below inputs; shown in guide panel instead */
+  }
+  .register-guide-panel {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  .guide-title-box {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .guide-content-box p {
+    color: #b4c6fc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+/* Mobile Landscape Mode specific tweaks */
+@media (max-height: 600px) and (orientation: landscape) {
+  /* Thin out header bar to maximize space */
+  header {
+    height: 52px !important;
+  }
+  .header-container {
+    height: 52px !important;
+  }
+  .logo-img {
+    height: 28px !important;
+  }
+  .lang-trigger-btn {
+    padding: 0.35rem 0.55rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .portrait-only-title {
+    display: none !important;
+  }
+  .landscape-only-title {
+    display: block !important;
+  }
+  
+  .register-wrapper {
+    padding: 0.5rem 1rem 1.5rem 1rem !important; /* Pull card as high as possible */
+    min-height: auto;
+  }
+  .register-card {
+    max-width: 720px;
+    padding: 1.5rem 2rem !important;
+    border-radius: 20px;
+  }
+  .register-card-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  .register-input-desc {
+    display: none;
+  }
+  .register-guide-panel {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    text-align: left;
+  }
+  .register-title-box {
+    margin-bottom: 1rem;
+  }
+  .register-form {
+    gap: 1rem;
+  }
+  .register-input-wrap input {
+    padding: 0.7rem 0.85rem;
+    font-size: 1rem;
+  }
+}
+
+/* Tiny Mobile Viewport Tweaks */
+@media (max-width: 480px) {
+  .register-wrapper {
+    padding: 0.8rem 1rem 2rem 1rem;
+    min-height: auto; /* Disable vertical centering to pull card up near header */
+  }
+  .register-card {
+    padding: 1.8rem 1.4rem;
+    border-radius: 20px;
+  }
+  .register-title-box {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .register-input-wrap input {
+    padding: 0.75rem 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+
+/* --- Flat Q&A Page Specific Styles --- */
+.qna-subheading {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 2.2rem;
+  margin-bottom: 1.2rem;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 0.8rem;
+  letter-spacing: -0.3px;
+  text-align: left;
+}
+
+.qna-flat-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.qna-flat-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.8rem 2.2rem;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  text-align: left;
+  transition: border-color var(--transition-fast);
+}
+
+.qna-flat-card:hover {
+  border-color: rgba(0, 210, 255, 0.2);
+}
+
+.qna-flat-question {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.qna-flat-answer {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-top: 0.8rem;
+}
+
+/* --- Mobile Lock Overlay (Visible on PC) --- */
+.mobile-lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2a336a; /* Matches card background */
+  border-radius: 24px;
+  z-index: 10;
+  display: none; /* Shown on PC widths */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  gap: 1.2rem;
+}
+
+.mobile-lock-overlay h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.mobile-lock-overlay p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b4c6fc;
+  margin: 0;
+}
+
+.phone-icon-animate {
+  font-size: 3.5rem;
+  color: var(--color-primary);
+  animation: phoneBounce 2s infinite ease-in-out;
+}
+
+@keyframes phoneBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* PC Desktop lock display triggers */
+@media (min-width: 1025px) {
+  .register-card {
+    max-width: 460px !important; /* Revert card layout to single-column phone style */
+    min-height: 480px;
+  }
+  .register-card-content {
+    display: block !important;
+  }
+  .register-guide-panel {
+    display: none !important; /* Hide guides on PC lock */
+  }
+  .mobile-lock-overlay {
+    display: flex !important; /* Lock access on PC */
+  }
+}

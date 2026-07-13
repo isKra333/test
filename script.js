@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "btn-restart": "<i class=\"fa-solid fa-rotate-left\"></i> 처음부터 다시 보기",
       "footer-slogan": "언제나 당신을 위해 최고의 제품을 만드는 곳",
       "footer-policy-link": "개인정보처리방침",
+      "footer-qna-link": "자주 묻는 질문 (Q&A)",
       "policy-title": "개인정보처리방침 (Privacy Policy)"
     },
     en: {
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "btn-restart": "<i class=\"fa-solid fa-rotate-left\"></i> Restart Guide",
       "footer-slogan": "The place that always creates the best products for you",
       "footer-policy-link": "Privacy Policy",
+      "footer-qna-link": "Q&A (FAQ)",
       "policy-title": "Privacy Policy"
     },
     vi: {
@@ -116,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "btn-restart": "<i class=\"fa-solid fa-rotate-left\"></i> Xem lại từ đầu",
       "footer-slogan": "Nơi luôn tạo ra những sản phẩm đỉnh nhất dành cho bạn",
       "footer-policy-link": "Chính sách bảo mật",
+      "footer-qna-link": "Hỏi & Đáp (Q&A)",
       "policy-title": "Chính sách bảo mật (Privacy Policy)"
     }
   };
