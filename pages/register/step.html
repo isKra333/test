@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng ký | Playcoc</title>
+  <title>Đăng ký 단계별 검증 | Playcoc</title>
   <meta name="description" content="Trang đăng ký tài khoản PlayCoc mới an toàn và nhanh chóng.">
   
   <!-- SEO Open Graph -->
-  <meta property="og:title" content="Đăng ký | Playcoc">
+  <meta property="og:title" content="Đăng ký 단계별 검증 | Playcoc">
   <meta property="og:description" content="Đăng ký tài khoản PlayCoc.">
   <meta property="og:type" content="website">
   
@@ -46,13 +46,6 @@
             <i class="fa-solid fa-chevron-down arrow-icon"></i>
           </button>
           <div class="lang-dropdown-menu" id="lang-dropdown">
-            <!-- Korean hidden but kept for future debugging -->
-            <!--
-            <div class="lang-option" data-value="ko">
-              <img src="https://flagcdn.com/w20/kr.png" alt="KO" class="flag-img">
-              <span>한국어</span>
-            </div>
-            -->
             <div class="lang-option" data-value="en">
               <img src="https://flagcdn.com/w20/us.png" alt="EN" class="flag-img">
               <span>English</span>
@@ -86,8 +79,7 @@
           <i class="fa-solid fa-circle-check"></i>
         </div>
         <h3 data-i18n="success-signup-title">Đăng ký thành công!</h3>
-        <p data-i18n="success-signup-desc">Đăng ký của bạn đã hoàn tất thành công. Vui lòng đóng cửa sổ này, quay lại màn hình trò chơi và đăng nhập.</p>
-        <button type="button" class="register-submit-btn" id="success-close-btn" data-i18n="success-close-btn" style="margin-top: 0.5rem; width: 100%; max-width: 200px;">Xác nhận</button>
+        <p data-i18n="success-signup-desc">Chào mừng bạn gia nhập PLAYCOC. Trang web sẽ tự động chuyển về trang chủ sau vài giây.</p>
       </div>
 
       <!-- Card Title (Portrait Mode Only) -->
@@ -104,25 +96,30 @@
           </div>
 
           <!-- Username Field -->
-          <div class="register-input-wrap">
+          <div class="register-input-wrap active" id="wrap-username">
             <div class="input-field-relative-container">
               <input type="text" id="reg-username" data-i18n-placeholder="reg-username-placeholder" placeholder="Tài khoản" required autocomplete="off">
             </div>
             <p class="register-input-desc" data-i18n="reg-username-desc">Tên tài khoản có thể sử dụng chữ cái và chữ số, dài từ 6~12 ký tự và không được dùng khoảng trắng.</p>
+            <div class="step-field-message" id="msg-username"></div>
+            <button type="button" class="step-next-btn" id="btn-next-username" data-i18n="step-next-btn" disabled>Tiếp theo</button>
           </div>
 
           <!-- Password Field -->
-          <div class="register-input-wrap">
+          <div class="register-input-wrap step-field-wrapper" id="wrap-password">
             <div class="input-field-relative-container">
               <input type="password" id="reg-password" data-i18n-placeholder="reg-password-placeholder" placeholder="Mật khẩu" required autocomplete="off">
               <button type="button" class="password-toggle-btn" data-toggle-target="reg-password" tabindex="-1">
                 <i class="fa-solid fa-eye-slash"></i>
               </button>
             </div>
+            <p class="register-input-desc" data-i18n="reg-password-desc">Mật khẩu phải chứa 2 ký tự khác nhau trở lên, từ 6~12 ký tự. Ví dụ: chữ + số hoặc ký tự đặc biệt.</p>
+            <div class="step-field-message" id="msg-password"></div>
+            <button type="button" class="step-next-btn" id="btn-next-password" data-i18n="step-next-btn" disabled>Tiếp theo</button>
           </div>
 
           <!-- Confirm Password Field -->
-          <div class="register-input-wrap">
+          <div class="register-input-wrap step-field-wrapper" id="wrap-confirm">
             <div class="input-field-relative-container">
               <input type="password" id="reg-confirm-password" data-i18n-placeholder="reg-confirm-placeholder" placeholder="Xác nhận mật khẩu" required autocomplete="off">
               <button type="button" class="password-toggle-btn" data-toggle-target="reg-confirm-password" tabindex="-1">
@@ -130,18 +127,21 @@
               </button>
             </div>
             <p class="register-input-desc" data-i18n="reg-password-desc">Mật khẩu phải chứa 2 ký tự khác nhau trở lên, từ 6~12 ký tự. Ví dụ: chữ + số hoặc ký tự đặc biệt.</p>
+            <div class="step-field-message" id="msg-confirm"></div>
+            <button type="button" class="step-next-btn" id="btn-next-confirm" data-i18n="step-next-btn" disabled>Tiếp theo</button>
           </div>
 
           <!-- Email Field -->
-          <div class="register-input-wrap">
+          <div class="register-input-wrap step-field-wrapper" id="wrap-email">
             <div class="input-field-relative-container">
               <input type="email" id="reg-email" data-i18n-placeholder="reg-email-placeholder" placeholder="Địa chỉ e-mail" required autocomplete="off">
             </div>
             <p class="register-input-desc" data-i18n="reg-email-desc">Vui lòng nhập đúng địa chỉ mail, mail này được dùng khi bạn quên mật khẩu.</p>
+            <div class="step-field-message" id="msg-email"></div>
           </div>
 
           <!-- Submit Button -->
-          <button type="submit" class="register-submit-btn" id="reg-submit-btn-el" data-i18n="reg-submit-btn" disabled>Xác nhận</button>
+          <button type="submit" class="register-submit-btn step-field-wrapper" id="reg-submit-btn-el" data-i18n="reg-submit-btn" disabled>Xác nhận</button>
         </form>
 
         <!-- Right Side Guide Panel (Visible only in desktop and landscape mode) -->
@@ -179,6 +179,6 @@
     </div>
   </footer>
 
-  <script src="register.js"></script>
+  <script src="step.js"></script>
 </body>
 </html>

@@ -1319,11 +1319,12 @@ footer {
   flex-direction: column;
   gap: 0.4rem;
   text-align: left;
+  position: relative; /* Context for absolute positioned status icons */
 }
 
 .register-input-wrap input {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1.0rem; /* Reverted to default padding */
   background-color: #d8d8d8;
   color: #000000;
   border: 1px solid #111111;
@@ -1349,9 +1350,9 @@ footer {
 }
 
 .register-submit-btn {
-  background-color: #3e3e3e;
+  background-color: #4f61d6; /* Theme-specific active blue/indigo button */
   color: #ffffff;
-  border: 1px solid #111111;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 0.65rem 2.8rem;
   font-size: 1.1rem;
@@ -1359,12 +1360,29 @@ footer {
   cursor: pointer;
   outline: none;
   margin: 1rem auto 0 auto;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
   width: auto;
+  box-shadow: 0 4px 15px rgba(79, 97, 214, 0.3);
 }
 
-.register-submit-btn:hover {
-  background-color: #4f4f4f;
+.register-submit-btn:hover:not(:disabled) {
+  background-color: #5f71e6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 97, 214, 0.5);
+}
+
+.register-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.register-submit-btn:disabled {
+  background-color: #1b2247 !important;
+  color: #727fa1 !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none !important;
 }
 
 /* Guide Panel - Hidden by default in portrait */
@@ -1622,4 +1640,304 @@ footer {
   .mobile-lock-overlay {
     display: flex !important; /* Lock access on PC */
   }
+}
+
+/* --- Validation Error Banner --- */
+.register-error-banner {
+  background-color: rgba(255, 75, 75, 0.15);
+  border: 1px solid #ff4b4b;
+  color: #ffb6b6;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+  text-align: left;
+  line-height: 1.4;
+  box-shadow: 0 4px 15px rgba(255, 75, 75, 0.1);
+  animation: slideDownError 0.25s ease-out;
+}
+
+@keyframes slideDownError {
+  0% { transform: translateY(-8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --- Registration Success Panel --- */
+.register-success-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3.5rem 2rem;
+  gap: 1.4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.success-icon-animate {
+  font-size: 4.5rem;
+  color: #4caf50;
+  animation: successScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  filter: drop-shadow(0 4px 12px rgba(76, 175, 80, 0.3));
+}
+
+@keyframes successScale {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.12); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.register-success-panel h3 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.register-success-panel p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b4c6fc;
+  margin: 0;
+  max-width: 320px;
+}
+
+/* --- Spinner Animation on Submit Button --- */
+@keyframes buttonSpinner {
+  to { transform: rotate(360deg); }
+}
+
+.register-submit-btn.loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+  cursor: wait;
+}
+
+.register-submit-btn.loading::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: buttonSpinner 0.6s linear infinite;
+}
+
+/* --- Validation Status Icons --- */
+.input-field-relative-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Input Validation Border & Glow Styling --- */
+.register-input-wrap input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.register-input-wrap input.is-valid {
+  border-color: #2e7d32 !important; /* Slightly darker green border for distinction */
+  background-color: #c8e6c9 !important; /* Slightly more pronounced premium pastel green background */
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.2) !important;
+}
+
+.register-input-wrap input.is-valid:focus {
+  border-color: #2e7d32 !important;
+  background-color: #c8e6c9 !important;
+  box-shadow: 0 0 12px rgba(46, 125, 50, 0.4) !important;
+}
+
+.register-input-wrap input.is-invalid {
+  border-color: #d32f2f !important; /* Slightly darker red border for distinction */
+  background-color: #ffcdd2 !important; /* Slightly more pronounced premium pastel red background */
+  box-shadow: 0 0 8px rgba(211, 47, 47, 0.2) !important;
+}
+
+.register-input-wrap input.is-invalid:focus {
+  border-color: #d32f2f !important;
+  background-color: #ffcdd2 !important;
+  box-shadow: 0 0 12px rgba(211, 47, 47, 0.4) !important;
+}
+
+/* --- Password Toggle Eye Buttons --- */
+.password-toggle-btn {
+  position: absolute;
+  right: 0.7rem; /* Placed at the far right edge of the input, closer to the border */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.4rem; /* Friendly click target */
+  margin: 0;
+  color: #666666;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  transition: color 0.2s ease, transform 0.1s ease;
+  outline: none;
+}
+
+.password-toggle-btn:hover {
+  color: #111111;
+}
+
+.password-toggle-btn:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Extra right padding specifically for password input elements to accommodate the eye button on the right */
+.register-input-wrap input[type="password"] {
+  padding-right: 2.5rem !important;
+}
+
+/* --- Step-by-Step Form Transition & Message Styles --- */
+.step-field-wrapper {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin-bottom 0.4s ease;
+}
+
+.step-field-wrapper.active {
+  max-height: 180px; /* Accommodate input, description and status message */
+  opacity: 1;
+  margin-bottom: 1.2rem !important;
+  overflow: visible;
+}
+
+/* Synced transitions for submit button */
+button.register-submit-btn.step-field-wrapper {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-width: 0 !important;
+  margin-top: 0 !important;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+}
+
+button.register-submit-btn.step-field-wrapper.active {
+  max-height: 54px;
+  opacity: 1;
+  padding-top: 0.8rem !important;
+  padding-bottom: 0.8rem !important;
+  border-width: 1px !important;
+  margin-top: 0.5rem !important;
+  overflow: visible;
+}
+
+/* Status Checking Input State */
+.register-input-wrap input.is-checking {
+  border-color: #ffb74d !important;
+  background-color: #fff3e0 !important; /* Soft pastel orange/yellow for checking state */
+  box-shadow: 0 0 8px rgba(255, 183, 77, 0.2) !important;
+}
+
+.register-input-wrap input.is-checking:focus {
+  border-color: #ffb74d !important;
+  background-color: #fff3e0 !important;
+  box-shadow: 0 0 12px rgba(255, 183, 77, 0.4) !important;
+}
+
+/* Step-specific inline messages */
+.step-field-message {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+  min-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.step-field-message.success-message {
+  color: #4caf50; /* Green message text */
+}
+
+.step-field-message.error-message {
+  color: #ff4b4b; /* Red message text */
+}
+
+.step-field-message.checking-message {
+  color: #ffb74d; /* Soft orange/yellow message text */
+}
+
+/* Step-by-Step Next Action Buttons */
+.step-next-btn {
+  width: auto;
+  align-self: flex-end; /* Align to the right in flex column wrapper */
+  padding: 0.5rem 1.5rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.step-next-btn:disabled {
+  background-color: #555555;
+  border-color: #555555;
+  color: #999999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.step-next-btn:not(:disabled):hover {
+  background-color: #4351a3; /* Brand color hover */
+  border-color: #4351a3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(67, 81, 163, 0.3);
+}
+
+.step-next-btn:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* --- Smooth Transitions for Form Submission --- */
+.fade-out-anim {
+  animation: formFadeOut 0.3s forwards ease-in;
+}
+
+.fade-in-anim {
+  animation: panelFadeIn 0.4s forwards ease-out;
+}
+
+@keyframes formFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
