@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "hero-subtitle": "언제 어디서나 웹과 모바일로 최고의 카드 & 보드 게임을 즐겨보세요.",
       "hero-webgame-btn": "Webgame 시작하기",
       "hero-apk-btn": "APK 다운받기",
+      "event-badge": "이벤트 진행중",
       "hero-cs-btn": "CS 문의하기",
 
       "step1-tag": "Step 1",
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "hero-subtitle": "Enjoy the best card and board games on web and mobile anytime, anywhere.",
       "hero-webgame-btn": "Launch Web Game",
       "hero-apk-btn": "Download APK",
+      "event-badge": "Event ON!",
       "hero-cs-btn": "Customer Support",
 
       "step1-tag": "Step 1",
@@ -89,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "hero-subtitle": "Trải nghiệm các trò chơi bài và cờ phổ biến trên web và di động mọi lúc, mọi nơi.",
       "hero-webgame-btn": "Chơi Web Game",
       "hero-apk-btn": "Tải xuống APK",
+      "event-badge": "Sự kiện đang diễn ra!",
       "hero-cs-btn": "Hỗ trợ khách hàng",
 
       "step1-tag": "Bước 1",
@@ -312,4 +315,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- iOS Detection & Hide APK Elements ---
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isIOS) {
+    const apkBtn = document.querySelector('.apk-btn');
+    const divider = document.querySelector('.section-divider');
+    const guideSection = document.getElementById('apk-guide-section');
+    
+    if (apkBtn) apkBtn.style.display = 'none';
+    if (divider) divider.style.display = 'none';
+    if (guideSection) guideSection.style.display = 'none';
+  }
 });

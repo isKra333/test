@@ -491,6 +491,110 @@ header {
   letter-spacing: 0.8px;
 }
 
+/* --- Glowing Button Effect --- */
+.glowing-btn {
+  position: relative;
+  overflow: visible;
+  animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2), inset 0 0 5px rgba(0, 210, 255, 0.1);
+    border-color: rgba(0, 210, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.5), inset 0 0 15px rgba(0, 210, 255, 0.2);
+    border-color: rgba(0, 210, 255, 0.8);
+  }
+}
+
+/* --- Event Badge (Floating + Shine) --- */
+.event-badge {
+  position: absolute;
+  top: -14px;
+  right: -8px;
+  z-index: 10;
+  background: var(--gradient-accent);
+  color: #fff;
+  font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(112, 0, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  pointer-events: none;
+  overflow: hidden; /* Required for shine clipping */
+}
+
+/* --- 1. Shine / Shimmer Effect (Kept as requested) --- 
+.event-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -250%;
+  width: 250%;
+  height: 100%;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0.2) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-45deg);
+  animation: badgeShineSweep 6s infinite ease-in-out;
+}
+
+@keyframes badgeShineSweep {
+  0% { left: -250%; width: 250%; opacity: 0; }
+  5% { opacity: 1; }
+  25% { left: 200%; width: 15%; opacity: 1; }
+  25.01% { left: -250%; width: 250%; opacity: 0; }
+  30% { left: -250%; width: 250%; opacity: 0; }
+  35% { opacity: 1; }
+  55% { left: 200%; width: 15%; opacity: 1; }
+  55.01%, 100% { left: 200%; width: 15%; opacity: 0; }
+}
+------------------------------------------------- */
+
+/* 2. Full Body Flash Effect (번쩍번쩍) */
+.event-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  /* 평면 화이트가 아닌 중앙 집중형 둥근 빛방울 느낌 */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+  mix-blend-mode: overlay; /* 밑의 핑크/퍼플 그라데이션과 우아하게 섞임 */
+  opacity: 0;
+  pointer-events: none;
+  animation: badgePremiumFlash 5s infinite ease-in-out;
+}
+
+@keyframes badgePremiumFlash {
+  /* 첫 번째 부드러운 팽창(Swell)과 발광 */
+  0% { opacity: 0; transform: scale(0.9); box-shadow: 0 0 0 rgba(255,255,255,0); }
+  8% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 25px rgba(255,255,255,0.8); }
+  16% { opacity: 0; transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); }
+  
+  /* 두 번째 부드러운 팽창(Swell)과 발광 */
+  22% { opacity: 0; transform: scale(0.9); box-shadow: 0 0 0 rgba(255,255,255,0); }
+  30% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 25px rgba(255,255,255,0.8); }
+  38% { opacity: 0; transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); }
+  
+  /* 우아한 대기 시간 */
+  100% { opacity: 0; transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); }
+}
+
 /* --- Section Divider --- */
 .section-divider {
   display: flex;
